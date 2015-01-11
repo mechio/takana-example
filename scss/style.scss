@@ -1,0 +1,51 @@
+body {
+  font-family: 'Helvetica Neue', 'Helvetica';
+  color: #444;
+  font-size: 20px;
+}
+
+#container {
+  max-width: 600px;
+  margin: 0px auto;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+//
+// styles for the box grid
+//
+
+$box-size: 70px;
+$box-colour: #bbb;
+$box-text-colour: white;
+$box-spacing: 10px;
+
+.boxes {
+  margin-top: 30px;
+  
+  & > div {
+    text-align: center;;
+    background-color: $box-colour;
+    width: $box-size;
+    height: $box-size;
+    color: $box-text-colour;
+    display: inline-block;
+    padding-top: 22px;
+    margin-right: $box-spacing;
+    margin-bottom: $box-spacing;
+    overflow: hidden;
+    font-weight: bold;
+  }
+
+  @for $i from 0 to 17 {
+    & > div:nth-child(#{$i}):before {
+      content: "box #{$i}";
+    }
+  }
+}
